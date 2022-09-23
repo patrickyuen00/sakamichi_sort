@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import { useState, useEffect, useRef} from 'react';
-import { Navigate } from 'react-router-dom';
+import Result from './result';
 
 export default function Sort(group) {
     const members_all = require('./members.json')
@@ -26,7 +26,10 @@ export default function Sort(group) {
 
     useEffect(() => {
         if (initialRender.current === false && index_a === member_list.length - 1) {
-            setEnd(<Navigate to='/' />)
+            setEnd(<div>
+                <h1>結果</h1>
+                <Result array={member_list} obj={member} />
+                </div>)
         }
     },[index_a])
 
