@@ -14,3 +14,8 @@
 .home > div {
     align-self: center;
 }
+
+Button {
+    width: 100px;
+    font-weight: bold;
+}
