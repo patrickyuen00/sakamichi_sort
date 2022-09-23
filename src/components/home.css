@@ -1,0 +1,16 @@
+.home {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.home > h1 {
+    font-size: 80px;
+    align-self: center;
+}
+
+.home > div {
+    align-self: center;
+}
