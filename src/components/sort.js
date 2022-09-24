@@ -12,6 +12,7 @@ export default function Sort(group) {
     const [endSort,setEnd] = useState(null);
     const [previous,setPrev] = useState(null)
     const initialRender = useRef(true);
+    const firstPrev = useRef(false)
 
     useEffect(() => {
         initialRender.current = false;
@@ -36,6 +37,7 @@ export default function Sort(group) {
     },[index_a])
 
     function nextMember(index){
+        firstPrev.current = false
         if (index === 'a') {
             setPrev('a')
             member[member_list[index_a]] += 1
@@ -55,6 +57,11 @@ export default function Sort(group) {
     }
 
     function prev(){
+        if (firstPrev.current) {
+            window.alert('戻る操作は一回までしかできません')
+            return
+        }
+        firstPrev.current = true
         if (index_b - index_a === 1){
             setA(index_a - 1)
             setB(member_list.length - 1)
