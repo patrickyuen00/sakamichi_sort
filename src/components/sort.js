@@ -10,6 +10,7 @@ export default function Sort(group) {
     const [index_a,setA] = useState(0);
     const [index_b,setB] = useState(1);
     const [endSort,setEnd] = useState(null);
+    const [previous,setPrev] = useState(null)
     const initialRender = useRef(true);
 
     useEffect(() => {
@@ -36,9 +37,11 @@ export default function Sort(group) {
 
     function nextMember(index){
         if (index === 'a') {
+            setPrev('a')
             member[member_list[index_a]] += 1
         }
         else if (index === 'b') {
+            setPrev('b')
             member[member_list[index_b]] += 1
         }
 
@@ -51,12 +54,39 @@ export default function Sort(group) {
         }
     }
 
+    function prev(){
+        if (index_b - index_a === 1){
+            setA(index_a - 1)
+            setB(member_list.length - 1)
+                if (previous === 'a') {
+                    member[member_list[index_a - 1]] -= 1
+                }
+                else {
+                    member[member_list[member_list.length - 1]] -= 1
+                }
+        }
+        else {
+            setB(index_b - 1)
+            if (previous === 'a') {
+                member[member_list[index_a]] -= 1
+            }
+            else {
+                member[member_list[index_b - 1]] -= 1
+            }
+        }
+    }
+
     return (
         <div className='sort'>
             <h1>{members_all[group.group]['group']}ソート</h1>
             <div>
-                <Button variant='contained' onClick={() => nextMember('a')} style={{fontSize: "20px"}}>{member_list[index_a]}</Button>
-                <Button variant='contained' onClick={() => nextMember('b')} style={{fontSize: "20px"}}>{member_list[index_b]}</Button>
+                <Button variant='contained' onClick={() => nextMember('a')} 
+                style={{fontSize: "20px"}} className='main_button'>{member_list[index_a]}</Button>
+                <Button variant='contained' onClick={() => nextMember('b')} 
+                style={{fontSize: "20px"}} className='main_button'>{member_list[index_b]}</Button>
+            </div>
+            <div className='modoru'>
+                <Button variant='outlined' onClick={prev}>戻る</Button>
             </div>
             {endSort}
         </div>

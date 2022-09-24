@@ -1,4 +1,4 @@
-Button {
+.main_button {
     height: 100px;
     width: 150px;
     font-size: 64px;
@@ -27,4 +27,11 @@ tr:nth-child(even) {
 th {
     background-color: #13506a;
     color: white
+}
+
+.modoru {
+    padding-top: 20px;
+    display: flex;
+    justify-content: end;
+    width: 300px
 }
