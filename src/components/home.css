@@ -19,3 +19,7 @@ Button {
     width: 100px;
     font-weight: bold;
 }
+
+.all {
+    padding-top: 10px;
+}

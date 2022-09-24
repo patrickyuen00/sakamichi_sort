@@ -36,6 +36,9 @@ export default function Home() {
                     >日向坂46</Button>
                 </ThemeProvider>
             </div>
+            <div className='all'>
+                <Button variant='contained' component={Link} to='/all_sort'>全グループ</Button>
+            </div>
         </div>
     )
 }

@@ -4,15 +4,15 @@ import Result from './result';
 import './sort.css';
 
 export default function Sort(group) {
-    const members_all = require('./members.json')
-    const [member,setMember] = useState({})
-    const [member_list,setList] = useState([])
+    const members_all = require('./members.json');
+    const [member,setMember] = useState({});
+    const [member_list,setList] = useState([]);
     const [index_a,setA] = useState(0);
     const [index_b,setB] = useState(1);
     const [endSort,setEnd] = useState(null);
     const [previous,setPrev] = useState(null)
     const initialRender = useRef(true);
-    const firstPrev = useRef(false)
+    const firstPrev = useRef(false);
 
     useEffect(() => {
         initialRender.current = false;
@@ -22,7 +22,6 @@ export default function Sort(group) {
             member_temp[members_all[group.group]['member'][i]] = 0
             temp_list.push(members_all[group.group]['member'][i])
         }
-
         setMember(member_temp)
         setList(temp_list)
     },[])

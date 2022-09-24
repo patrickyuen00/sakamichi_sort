@@ -11,6 +11,7 @@ function App() {
         <Route path="/nogi_sort" element={<Sort group="nogi"/>} />
         <Route path="/sakura_sort" element={<Sort group="sakura"/>} />
         <Route path="/hinata_sort" element={<Sort group="hinata"/>} />
+        <Route path="/all_sort" element={<Sort group="all"/>} />
       </Routes>
     </div>
   );
