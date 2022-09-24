@@ -33,7 +33,14 @@ export default function Sort(group) {
         }
     },[index_a])
 
-    function nextMember(){
+    function nextMember(index){
+        if (index === 'a') {
+            member[member_list[index_a]] += 1
+        }
+        else if (index === 'b') {
+            member[member_list[index_b]] += 1
+        }
+
         if (index_b !== member_list.length - 1) {
             setB(index_b + 1)
         }
@@ -46,8 +53,8 @@ export default function Sort(group) {
     return (
         <div className='sort'>
             <h1>{members_all[group.group]['group']}ソート</h1>
-            <Button variant='contained' onClick={nextMember}>{member_list[index_a]}</Button>
-            <Button variant='contained' onClick={nextMember}>{member_list[index_b]}</Button>
+            <Button variant='contained' onClick={() => nextMember('a')}>{member_list[index_a]}</Button>
+            <Button variant='contained' onClick={() => nextMember('b')}>{member_list[index_b]}</Button>
             {endSort}
         </div>
     )
