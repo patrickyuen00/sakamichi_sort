@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import { useState, useEffect, useRef} from 'react';
 import Result from './result';
+import './sort.css';
 
 export default function Sort(group) {
     const members_all = require('./members.json')
@@ -26,7 +27,7 @@ export default function Sort(group) {
 
     useEffect(() => {
         if (initialRender.current === false && index_a === member_list.length - 1) {
-            setEnd(<div>
+            setEnd(<div className='result'>
                 <h1>結果</h1>
                 <Result array={member_list} obj={member} />
                 </div>)
@@ -53,8 +54,10 @@ export default function Sort(group) {
     return (
         <div className='sort'>
             <h1>{members_all[group.group]['group']}ソート</h1>
-            <Button variant='contained' onClick={() => nextMember('a')}>{member_list[index_a]}</Button>
-            <Button variant='contained' onClick={() => nextMember('b')}>{member_list[index_b]}</Button>
+            <div>
+                <Button variant='contained' onClick={() => nextMember('a')} style={{fontSize: "20px"}}>{member_list[index_a]}</Button>
+                <Button variant='contained' onClick={() => nextMember('b')} style={{fontSize: "20px"}}>{member_list[index_b]}</Button>
+            </div>
             {endSort}
         </div>
     )

@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import {createTheme} from '@mui/material/styles'
-import './home.css'
+import {createTheme} from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import { Link } from 'react-router-dom';
+import './home.css';
 
 export default function Home() {
     const theme = createTheme({
