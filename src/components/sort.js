@@ -12,7 +12,7 @@ export default function Sort(group) {
     const [endSort,setEnd] = useState(null);
     const [previous,setPrev] = useState(null)
     const initialRender = useRef(true);
-    const firstPrev = useRef(false);
+    const firstPrev = useRef(true);
 
     useEffect(() => {
         initialRender.current = false;
